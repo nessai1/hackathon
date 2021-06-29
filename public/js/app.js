@@ -22,7 +22,7 @@ var default_layout = "default";
   computed: {},
   data: function data() {
     return {
-      message: "fqafaafaffs"
+      message: "hello world"
     };
   }
 });

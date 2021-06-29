@@ -11,7 +11,7 @@ export default {
     computed: {},
     data() {
         return {
-            message: "hi world"
+            message: "hello world"
         }
     }
 };
