@@ -1,12 +1,14 @@
 <template>
-    <div>
-        {{message}}
+    <div class="app">
+        <p>
+            <router-link to="/">go to Main page</router-link>
+            <router-link to="/about">go to About</router-link>
+        </p>
+
+        <router-view></router-view>
     </div>
 </template>
 <script>
-const default_layout = "default";
-
-
 export default {
     computed: {},
     data() {
