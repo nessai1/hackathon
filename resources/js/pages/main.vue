@@ -1,25 +1,20 @@
 <template>
     <div class="container mx-auto">
         <div class="grid grid-cols-3 gap-5">
-            <div>
-                What went well
+            <RetroColumn name="What went well" type="good">
+                <RetroCard/>
+                <RetroCard/>
+            </RetroColumn>
 
+            <RetroColumn name="What should be improved" type="bad">
                 <RetroCard/>
                 <RetroCard/>
-            </div>
-            <div>
-                What should be improved
+            </RetroColumn>
 
+            <RetroColumn name="Retro summary and next actions" type="summary">
                 <RetroCard/>
                 <RetroCard/>
-                <RetroCard/>
-                <RetroCard/>
-            </div>
-            <div>
-                Retro summary and next actions
-
-                <RetroCard/>
-            </div>
+            </RetroColumn>
         </div>
     </div>
 </template>
@@ -27,8 +22,9 @@
 <script>
 
 import RetroCard from "../components/RetroCard";
+import RetroColumn from "../components/RetroColumn";
 
 export default {
-    components: {RetroCard}
+    components: {RetroColumn, RetroCard}
 }
 </script>

@@ -27,7 +27,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/RetroColumn.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/RetroColumn.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    name: String,
+    type: String
+  }
+});
 
 /***/ }),
 
@@ -62,11 +89,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _components_RetroCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/RetroCard */ "./resources/js/components/RetroCard.vue");
-//
-//
-//
-//
-//
+/* harmony import */ var _components_RetroColumn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/RetroColumn */ "./resources/js/components/RetroColumn.vue");
 //
 //
 //
@@ -89,8 +112,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
+    RetroColumn: _components_RetroColumn__WEBPACK_IMPORTED_MODULE_1__.default,
     RetroCard: _components_RetroCard__WEBPACK_IMPORTED_MODULE_0__.default
   }
 });
@@ -125,6 +150,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
 //
 //
 //
@@ -250,6 +279,44 @@ var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__
 /* hot reload */
 if (false) { var api; }
 component.options.__file = "resources/js/components/RetroCard.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/RetroColumn.vue":
+/*!*************************************************!*\
+  !*** ./resources/js/components/RetroColumn.vue ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _RetroColumn_vue_vue_type_template_id_13c80479___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RetroColumn.vue?vue&type=template&id=13c80479& */ "./resources/js/components/RetroColumn.vue?vue&type=template&id=13c80479&");
+/* harmony import */ var _RetroColumn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RetroColumn.vue?vue&type=script&lang=js& */ "./resources/js/components/RetroColumn.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _RetroColumn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _RetroColumn_vue_vue_type_template_id_13c80479___WEBPACK_IMPORTED_MODULE_0__.render,
+  _RetroColumn_vue_vue_type_template_id_13c80479___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/RetroColumn.vue"
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
 
 /***/ }),
@@ -421,6 +488,21 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/RetroColumn.vue?vue&type=script&lang=js&":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/RetroColumn.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RetroColumn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RetroColumn.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/RetroColumn.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_RetroColumn_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/pages/about.vue?vue&type=script&lang=js&":
 /*!***************************************************************!*\
   !*** ./resources/js/pages/about.vue?vue&type=script&lang=js& ***!
@@ -493,6 +575,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RetroCard_vue_vue_type_template_id_0aefb41a___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RetroCard_vue_vue_type_template_id_0aefb41a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RetroCard.vue?vue&type=template&id=0aefb41a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/RetroCard.vue?vue&type=template&id=0aefb41a&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/RetroColumn.vue?vue&type=template&id=13c80479&":
+/*!********************************************************************************!*\
+  !*** ./resources/js/components/RetroColumn.vue?vue&type=template&id=13c80479& ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RetroColumn_vue_vue_type_template_id_13c80479___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RetroColumn_vue_vue_type_template_id_13c80479___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_RetroColumn_vue_vue_type_template_id_13c80479___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./RetroColumn.vue?vue&type=template&id=13c80479& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/RetroColumn.vue?vue&type=template&id=13c80479&");
 
 
 /***/ }),
@@ -583,23 +681,64 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "app__card border rounded-2xl p-4 mb-6" }, [
-      _c("div", { staticClass: "font-bold" }, [_vm._v("Ivan Petrov")]),
-      _vm._v(" "),
-      _c("div", [
-        _vm._v(
-          "\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore dolorum eligendi excepturi\n        iure minus nemo non, omnis quis repellat tempora?\n        Ad assumenda at dolorum ipsa itaque reiciendis! Mollitia, sunt vitae.\n    "
-        )
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "flex flex-row-reverse" }, [
-        _c("span", { staticClass: "p-4" }, [_vm._v("👍")]),
+    return _c(
+      "div",
+      { staticClass: "app__card bg-white border rounded-2xl p-4 mb-6" },
+      [
+        _c("div", { staticClass: "font-bold" }, [_vm._v("Ivan Petrov")]),
         _vm._v(" "),
-        _c("span", { staticClass: "p-4" }, [_vm._v("👎")])
-      ])
-    ])
+        _c("div", [
+          _vm._v(
+            "\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore dolorum eligendi excepturi\n        iure minus nemo non, omnis quis repellat tempora?\n        Ad assumenda at dolorum ipsa itaque reiciendis! Mollitia, sunt vitae.\n    "
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex flex-row-reverse" }, [
+          _c("span", { staticClass: "p-4" }, [_vm._v("👎")]),
+          _vm._v(" "),
+          _c("span", { staticClass: "p-4" }, [_vm._v("👍")])
+        ]),
+        _vm._v(" "),
+        _c("img", { attrs: { src: "/storage/memes/meme1.jpg", alt: "meme" } })
+      ]
+    )
   }
 ]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/RetroColumn.vue?vue&type=template&id=13c80479&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/RetroColumn.vue?vue&type=template&id=13c80479& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "app__column", class: "app__column--" + _vm.type },
+    [
+      _c("div", { staticClass: "text-center text-2xl p-4" }, [
+        _vm._v(_vm._s(_vm.name))
+      ]),
+      _vm._v(" "),
+      _vm._t("default")
+    ],
+    2
+  )
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -646,44 +785,35 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container mx-auto" }, [
-    _c("div", { staticClass: "grid grid-cols-3 gap-5" }, [
-      _c(
-        "div",
-        [
-          _vm._v("\n            What went well\n\n            "),
-          _c("RetroCard"),
-          _vm._v(" "),
-          _c("RetroCard")
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _vm._v("\n            What should be improved\n\n            "),
-          _c("RetroCard"),
-          _vm._v(" "),
-          _c("RetroCard"),
-          _vm._v(" "),
-          _c("RetroCard"),
-          _vm._v(" "),
-          _c("RetroCard")
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        [
-          _vm._v(
-            "\n            Retro summary and next actions\n\n            "
-          ),
-          _c("RetroCard")
-        ],
-        1
-      )
-    ])
+    _c(
+      "div",
+      { staticClass: "grid grid-cols-3 gap-5" },
+      [
+        _c(
+          "RetroColumn",
+          { attrs: { name: "What went well", type: "good" } },
+          [_c("RetroCard"), _vm._v(" "), _c("RetroCard")],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "RetroColumn",
+          { attrs: { name: "What should be improved", type: "bad" } },
+          [_c("RetroCard"), _vm._v(" "), _c("RetroCard")],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "RetroColumn",
+          {
+            attrs: { name: "Retro summary and next actions", type: "summary" }
+          },
+          [_c("RetroCard"), _vm._v(" "), _c("RetroCard")],
+          1
+        )
+      ],
+      1
+    )
   ])
 }
 var staticRenderFns = []
@@ -734,24 +864,34 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "app" },
+    { staticClass: "app bg-gray-100" },
     [
-      _c(
-        "nav",
-        { staticClass: "bg-blue-300 p-4" },
-        [
-          _c("router-link", { staticClass: "underline", attrs: { to: "/" } }, [
-            _vm._v("go to Main page")
-          ]),
-          _vm._v(" "),
-          _c(
-            "router-link",
-            { staticClass: "underline", attrs: { to: "/about" } },
-            [_vm._v("go to About")]
-          )
-        ],
-        1
-      ),
+      _c("nav", { staticClass: "bg-blue-300 p-4 flex" }, [
+        _c(
+          "div",
+          { staticClass: "app__logo flex-grow" },
+          [
+            _c(
+              "router-link",
+              { staticClass: "underline", attrs: { to: "/" } },
+              [_vm._v("Memespective")]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          [
+            _c(
+              "router-link",
+              { staticClass: "underline", attrs: { to: "/about" } },
+              [_vm._v("About")]
+            )
+          ],
+          1
+        )
+      ]),
       _vm._v(" "),
       _c("router-view")
     ],
