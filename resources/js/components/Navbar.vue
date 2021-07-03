@@ -6,6 +6,7 @@
         <div>
             <router-link to="/room/qwerty123" class="underline">Single retro</router-link>
             <router-link to="/about" class="underline">About</router-link>
+            <router-link to="/login" class="underline">Login</router-link>
         </div>
     </nav>
 </template>
