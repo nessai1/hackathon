@@ -23,8 +23,23 @@ import axios from 'axios';
 
 export default {
     components: {RoomStat, Page},
+    data() {
+        return {
+            authorized: false,
+        }
+    },
     created() {
         //axios.get('')
+    },
+    mounted() {
+        axios.post('/auth').then(response => {
+            this.authorized = response.data
+            console.log(this.authorized);
+            if (!this.authorized && window.location.pathname !== '/login')
+            {
+                window.location.pathname = '/login';
+            }
+        });
     }
 }
 </script>
