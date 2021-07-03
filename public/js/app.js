@@ -2004,8 +2004,7 @@ __webpack_require__.r(__webpack_exports__);
         postContent: this.text,
         postType: this.type,
         room_id: this.$route.params.code
-      }).then(function (response) {
-        window.location.reload(); // todo: tmp hack
+      }).then(function (response) {//window.location.reload(); // todo: tmp hack
       });
     }
   }
