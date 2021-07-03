@@ -36,12 +36,28 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
+//            ob_start();
+//            echo "успешно залогинился за {$credentials['name']}";
+//            $r = ob_get_contents();
+//            ob_end_clean();
+//            $fl = fopen('C:\TestFile.txt', 'w');
+//            fwrite($fl, $r);
+
             return redirect()->intended('dashboard');
+        }
+        else
+        {
+//            ob_start();
+//            echo "неуспешно залогинился за {$credentials['name']}";
+//            $r = ob_get_contents();
+//            ob_end_clean();
+//            $fl = fopen('C:\TestFile.txt', 'w');
+//            fwrite($fl, $r);
         }
 
         //return \response()->json(['error' => 'hello world'], 401);
         return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
+            'name' => 'The provided credentials do not match our records.',
         ]);
     }
 
@@ -54,8 +70,20 @@ class LoginController extends Controller
     {
         $user = new User();
         $user->name = $name;
-        $user->password = $password;
+        $user->password = bcrypt($password);
         $user->save();
+    }
+
+    public function checkAuth(Request $request) : bool
+    {
+        if (Auth::check())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
 

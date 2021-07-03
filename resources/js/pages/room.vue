@@ -25,8 +25,21 @@ import axios from "axios";
 
 export default {
     components: {Page, RetroColumn, RetroCard},
+    data() {
+        return {
+            authorized: false,
+        }
+    },
     mounted() {
         window.hackPageTitle = 'Memespected July, 3 at 4:30 PM';
+        axios.post('/auth').then(response => {
+            this.authorized = response.data
+            console.log(this.authorized);
+            if (!this.authorized && window.location.pathname !== '/login')
+            {
+                window.location.pathname = '/login';
+            }
+        });
     },
     data() {
         return {

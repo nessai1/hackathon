@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,4 +40,6 @@ Route::get('/soksok', function () {
 
 });
 
+Route::post('/api/rooms', 'App\Http\Controllers\RoomController@getUserRooms');
+Route::post('/auth', 'App\Http\Controllers\LoginController@checkAuth');
 Route::get('/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '.*');

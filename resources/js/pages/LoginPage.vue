@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div v-if="!userData.length" class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-md w-full space-y-8">
             <form class="mt-8 space-y-6" action="#" @submit.prevent="handleLogin">
                 <input type="hidden" name="remember" value="true">
@@ -37,6 +37,9 @@
             </form>
         </div>
     </div>
+    <div v-else>
+        <h1>{{userData}}</h1>
+    </div>
 </template>
 
 <script>
@@ -44,11 +47,19 @@ import axios from "axios";
 export default {
     data() {
         return {
+            rooms: [],
             formData: {
                 password: '',
                 name: '',
             },
+            userData: '',
+            authorized: null,
         }
+    },
+    mounted() {
+        axios.post('/auth').then(response => {
+            this.authorized = response.data; console.log(response.data)});
+        console.log(this.authorized);
     },
     created() {
         window.hackPageTitle = '';
@@ -57,12 +68,17 @@ export default {
         handleLogin() {
             axios.get('/sanctum/csrf-cookie').then(response => {
                 axios.post('/login', this.formData).then(response => {
-                    console.log('User signed in!');
+                    this.getName();
                 }).catch(error => {
                     console.log(error);
                 });
             });
+        },
+        getName() {
+            axios.post('/api/rooms').then(response => this.userData = response.data);
+            axios.post('/auth').then(response => this.authorized = response.data);
         }
     },
+
 }
 </script>

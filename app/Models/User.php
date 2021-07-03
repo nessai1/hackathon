@@ -37,4 +37,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Room::class);
     }
+
+    public function secrets()
+    {
+        return $this->hasMany(Secret::class);
+    }
 }

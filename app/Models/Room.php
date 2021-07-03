@@ -10,4 +10,10 @@ class Room extends Model
     use HasFactory;
 
 	protected $table = 'rooms';
+
+	public function users()
+    {
+        $this->hasMany(User::class);
+    }
+
 }
