@@ -1,8 +1,12 @@
 <template>
-    <div class="app">
-        <nav class="bg-blue-300 p-4">
-            <router-link to="/" class="underline">go to Main page</router-link>
-            <router-link to="/about" class="underline">go to About</router-link>
+    <div class="app bg-gray-100">
+        <nav class="bg-blue-300 p-4 flex">
+            <div class="app__logo flex-grow">
+                <router-link to="/" class="underline">Memespective</router-link>
+            </div>
+            <div>
+                <router-link to="/about" class="underline">About</router-link>
+            </div>
         </nav>
         <router-view></router-view>
     </div>

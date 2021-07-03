@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.app__column--good .app__card {
+    @apply bg-green-100;
+}
+
+.app__column--bad .app__card {
+    @apply bg-red-100;
+}
+
+.app__column--summary .app__card {
+    @apply bg-yellow-100;
+}
+
+
