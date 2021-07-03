@@ -1980,6 +1980,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -2021,17 +2023,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       formData: {
         password: '',
-        login: ''
+        name: ''
       }
     };
   },
   created: function created() {
     window.hackPageTitle = '';
+  },
+  methods: {
+    handleLogin: function handleLogin() {
+      var _this = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default().get('/sanctum/csrf-cookie').then(function (response) {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().post('/login', _this.formData).then(function (response) {
+          console.log('User signed in!');
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      });
+    }
   }
 });
 
@@ -3540,7 +3556,13 @@ var render = function() {
           "form",
           {
             staticClass: "mt-8 space-y-6",
-            attrs: { action: "#", method: "POST" }
+            attrs: { action: "#" },
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.handleLogin.apply(null, arguments)
+              }
+            }
           },
           [
             _c("input", {
@@ -3551,7 +3573,7 @@ var render = function() {
               _c("div", [
                 _c(
                   "label",
-                  { staticClass: "sr-only", attrs: { for: "login" } },
+                  { staticClass: "sr-only", attrs: { for: "name" } },
                   [_vm._v("Login")]
                 ),
                 _vm._v(" "),
@@ -3560,27 +3582,27 @@ var render = function() {
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.formData.login,
-                      expression: "formData.login"
+                      value: _vm.formData.name,
+                      expression: "formData.name"
                     }
                   ],
                   staticClass:
                     "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm",
                   attrs: {
-                    id: "login",
-                    name: "login",
+                    id: "name",
+                    name: "name",
                     type: "text",
                     autocomplete: "text",
                     required: "",
                     placeholder: "Login"
                   },
-                  domProps: { value: _vm.formData.login },
+                  domProps: { value: _vm.formData.name },
                   on: {
                     input: function($event) {
                       if ($event.target.composing) {
                         return
                       }
-                      _vm.$set(_vm.formData, "login", $event.target.value)
+                      _vm.$set(_vm.formData, "name", $event.target.value)
                     }
                   }
                 })
