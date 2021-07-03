@@ -2,18 +2,15 @@
     <Page>
         <div class="grid grid-cols-3 gap-5">
             <RetroColumn name="What went well" placeholder="Type something you glad to" type="good">
-                <RetroCard/>
-                <RetroCard/>
+                <RetroCard v-for="item in goodItems" :post="item" :key="item.id"/>
             </RetroColumn>
 
             <RetroColumn name="What should be improved" placeholder="Type something you worried about" type="bad">
-                <RetroCard/>
-                <RetroCard/>
+                <RetroCard v-for="item in badItems" :post="item" :key="item.id"/>
             </RetroColumn>
 
             <RetroColumn name="Retro summary" placeholder="Record all the decisions made" type="summary">
-                <RetroCard/>
-                <RetroCard/>
+                <RetroCard v-for="item in summaryItems" :post="item" :key="item.id"/>
             </RetroColumn>
         </div>
     </Page>
@@ -31,10 +28,24 @@ export default {
     mounted() {
         window.hackPageTitle = 'Memespected July, 3 at 4:30 PM';
     },
+    data() {
+        return {
+            goodItems: [],
+            badItems: [],
+            summaryItems: []
+        };
+    },
     created() {
-        console.log('posts');
         axios.get('/posts').then(response => {
-           console.log(response);
+            response.data.map(item => {
+                if (item.column_type === 'good') {
+                    this.goodItems.push(item);
+                } else if (item.column_type === 'bad') {
+                    this.badItems.push(item);
+                } else if (item.column_type === 'summary') {
+                    this.summaryItems.push(item);
+                }
+            });
         });
     }
 }
