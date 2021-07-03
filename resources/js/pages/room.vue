@@ -24,6 +24,7 @@
 import RetroCard from "../components/RetroCard";
 import RetroColumn from "../components/RetroColumn";
 import Page from "./page";
+import axios from "axios";
 
 export default {
     components: {Page, RetroColumn, RetroCard},
@@ -31,7 +32,10 @@ export default {
         window.hackPageTitle = 'Memespected July, 3 at 4:30 PM';
     },
     created() {
-        window.hackPageTitle = 'Memespected July, 3 at 4:30 PM';
+        console.log('posts');
+        axios.get('/posts').then(response => {
+           console.log(response);
+        });
     }
 }
 </script>

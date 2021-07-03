@@ -1917,6 +1917,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1928,11 +1930,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     name: String,
     type: String,
     placeholder: String
+  },
+  data: function data() {
+    return {
+      text: ''
+    };
+  },
+  methods: {
+    save: function save() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/posts', {
+        postContent: this.text,
+        postType: this.type
+      });
+    }
   }
 });
 
@@ -2114,8 +2137,7 @@ __webpack_require__.r(__webpack_exports__);
     RoomStat: _components_RoomStat__WEBPACK_IMPORTED_MODULE_1__.default,
     Page: _page__WEBPACK_IMPORTED_MODULE_0__.default
   },
-  created: function created() {
-    axios__WEBPACK_IMPORTED_MODULE_2___default().get('');
+  created: function created() {//axios.get('')
   }
 });
 
@@ -2175,6 +2197,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_RetroCard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/RetroCard */ "./resources/js/components/RetroCard.vue");
 /* harmony import */ var _components_RetroColumn__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/RetroColumn */ "./resources/js/components/RetroColumn.vue");
 /* harmony import */ var _page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./page */ "./resources/js/pages/page.vue");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
 //
 //
 //
@@ -2196,6 +2220,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -2209,7 +2234,10 @@ __webpack_require__.r(__webpack_exports__);
     window.hackPageTitle = 'Memespected July, 3 at 4:30 PM';
   },
   created: function created() {
-    window.hackPageTitle = 'Memespected July, 3 at 4:30 PM';
+    console.log('posts');
+    axios__WEBPACK_IMPORTED_MODULE_3___default().get('/posts').then(function (response) {
+      console.log(response);
+    });
   }
 });
 
@@ -3457,18 +3485,40 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "relative" }, [
         _c("textarea", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.text,
+              expression: "text"
+            }
+          ],
           staticClass:
             "app__create-card-text w-full rounded border p-2 pr-16 mb-8",
-          attrs: { placeholder: _vm.placeholder }
+          attrs: { placeholder: _vm.placeholder },
+          domProps: { value: _vm.text },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.text = $event.target.value
+            }
+          }
         }),
         _vm._v(" "),
         _c(
           "button",
           {
             staticClass:
-              "app__create-card-btn rounded bg-blue-400 hover:bg-blue-300 text-white absolute p-2"
+              "app__create-card-btn rounded bg-blue-400 hover:bg-blue-300 text-white absolute p-2",
+            on: {
+              click: function($event) {
+                return _vm.save()
+              }
+            }
           },
-          [_vm._v("Send")]
+          [_vm._v("\n            Send\n        ")]
         )
       ]),
       _vm._v(" "),
