@@ -152,4 +152,14 @@ class PostController extends Controller
 		$post->column_type = $request->get('postType');
 		$post->save();
 	}
+
+	public function reaction(Request $request, $id, $reaction)
+	{
+		$post = Post::find($id)->first();
+		if (!in_array($reaction, ['like', 'dislike'], true))
+		{
+			return;
+		}
+		$post->increment($reaction);
+	}
 }
