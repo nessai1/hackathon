@@ -11,6 +11,6 @@ class RoomCollection extends Model
 
 	public function get()
 	{
-		Room::find()
+
     }
 }
