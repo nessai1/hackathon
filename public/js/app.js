@@ -194,6 +194,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -1466,19 +1474,32 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "Page",
-    [
-      _c("RoomStat", { attrs: { enlarge: true } }),
-      _vm._v(" "),
-      _c("RoomStat"),
-      _vm._v(" "),
-      _c("RoomStat"),
-      _vm._v(" "),
-      _c("RoomStat")
-    ],
-    1
-  )
+  return _c("Page", [
+    _c(
+      "div",
+      { staticClass: "relative" },
+      [
+        _c(
+          "router-link",
+          {
+            staticClass:
+              "border rounded bg-blue-300 hover:bg-blue-400 p-3 text-white uppercase absolute right-0 top-4",
+            attrs: { tag: "button", to: "/room/qwerty123" }
+          },
+          [_vm._v("\n            New room\n        ")]
+        ),
+        _vm._v(" "),
+        _c("RoomStat", { attrs: { enlarge: true } }),
+        _vm._v(" "),
+        _c("RoomStat"),
+        _vm._v(" "),
+        _c("RoomStat"),
+        _vm._v(" "),
+        _c("RoomStat")
+      ],
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

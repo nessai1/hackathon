@@ -1,9 +1,17 @@
 <template>
     <Page>
-        <RoomStat :enlarge="true"/>
-        <RoomStat/>
-        <RoomStat/>
-        <RoomStat/>
+        <div class="relative">
+            <router-link
+                tag="button"
+                to="/room/qwerty123"
+                class="border rounded bg-blue-300 hover:bg-blue-400 p-3 text-white uppercase absolute right-0 top-4">
+                New room
+            </router-link>
+            <RoomStat :enlarge="true"/>
+            <RoomStat/>
+            <RoomStat/>
+            <RoomStat/>
+        </div>
     </Page>
 </template>
 
