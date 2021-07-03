@@ -1881,6 +1881,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -1900,9 +1902,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'RetroCard',
+  props: {
+    post: Object
+  },
+  data: function data() {
+    return {
+      likes: parseInt(this.post.like) || 0,
+      dislikes: parseInt(this.post.dislike) || 0
+    };
+  },
+  computed: {
+    printLikes: function printLikes() {
+      if (this.likes > 0) {
+        return "x".concat(this.likes);
+      }
+
+      return '';
+    },
+    printDislikes: function printDislikes() {
+      if (this.dislikes > 0) {
+        return "x".concat(this.dislikes);
+      }
+
+      return '';
+    }
+  },
+  methods: {
+    like: function like() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/posts/' + this.post.id + '/like');
+      this.likes++;
+    },
+    dislike: function dislike() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().post('/posts/' + this.post.id + '/dislike');
+      this.dislikes++;
+    },
+    showMeme: function showMeme() {
+      var panel1Handle = this.$showPanel({
+        component: 'my-test-component',
+        props: {//any data you want passed to your component
+        }
+      });
+      panel1Handle.promise.then(function (result) {
+        console.log(result);
+      });
+    }
+  }
+});
 
 /***/ }),
 
@@ -1951,9 +1999,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     save: function save() {
+      if (this.text === '') return;
       axios__WEBPACK_IMPORTED_MODULE_0___default().post('/posts', {
         postContent: this.text,
-        postType: this.type
+        postType: this.type,
+        room_id: this.$route.params.code
+      }).then(function (response) {
+        window.location.reload(); // todo: tmp hack
       });
     }
   }
@@ -2256,9 +2308,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _page__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./page */ "./resources/js/pages/page.vue");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-//
-//
-//
+var _components$data$moun;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2281,7 +2334,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_components$data$moun = {
   components: {
     Page: _page__WEBPACK_IMPORTED_MODULE_2__.default,
     RetroColumn: _components_RetroColumn__WEBPACK_IMPORTED_MODULE_1__.default,
@@ -2304,14 +2357,28 @@ __webpack_require__.r(__webpack_exports__);
         window.location.pathname = '/login';
       }
     });
-  },
-  created: function created() {
-    console.log('posts');
-    axios__WEBPACK_IMPORTED_MODULE_3___default().get('/posts').then(function (response) {
-      console.log(response);
-    });
   }
-});
+}, _defineProperty(_components$data$moun, "data", function data() {
+  return {
+    goodItems: [],
+    badItems: [],
+    summaryItems: []
+  };
+}), _defineProperty(_components$data$moun, "created", function created() {
+  var _this2 = this;
+
+  axios__WEBPACK_IMPORTED_MODULE_3___default().get('/posts').then(function (response) {
+    response.data.map(function (item) {
+      if (item.column_type === 'good') {
+        _this2.goodItems.push(item);
+      } else if (item.column_type === 'bad') {
+        _this2.badItems.push(item);
+      } else if (item.column_type === 'summary') {
+        _this2.summaryItems.push(item);
+      }
+    });
+  });
+}), _components$data$moun);
 
 /***/ }),
 
@@ -2371,23 +2438,31 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
-/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
-/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
-/* harmony import */ var _views_app_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./views/app.vue */ "./resources/js/views/app.vue");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'vue2-slideout-panel'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
+/* harmony import */ var _views_app_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./views/app.vue */ "./resources/js/views/app.vue");
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_1__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_2__.default);
 
-var router = new vue_router__WEBPACK_IMPORTED_MODULE_2__.default({
-  routes: _routes__WEBPACK_IMPORTED_MODULE_0__.default,
+vue__WEBPACK_IMPORTED_MODULE_2__.default.use(vue_router__WEBPACK_IMPORTED_MODULE_3__.default);
+vue__WEBPACK_IMPORTED_MODULE_2__.default.use(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'vue2-slideout-panel'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+
+var TestComponent = {
+  name: 'my-test-component',
+  template: "<div>My Test Component</div>"
+};
+vue__WEBPACK_IMPORTED_MODULE_2__.default.use(TestComponent);
+var router = new vue_router__WEBPACK_IMPORTED_MODULE_3__.default({
+  routes: _routes__WEBPACK_IMPORTED_MODULE_1__.default,
   mode: 'history'
 });
-var app = new vue__WEBPACK_IMPORTED_MODULE_1__.default({
+var app = new vue__WEBPACK_IMPORTED_MODULE_2__.default({
   el: '#app',
   components: {
-    App: _views_app_vue__WEBPACK_IMPORTED_MODULE_3__.default
+    App: _views_app_vue__WEBPACK_IMPORTED_MODULE_4__.default
   },
   router: router
 });
@@ -3508,38 +3583,57 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "app__card border-2 rounded mb-6" }, [
-      _c("div", { staticClass: "p-4 pb-0" }, [
-        _c("div", { staticClass: "font-bold mb-4" }, [_vm._v("Ivan Petrov")]),
-        _vm._v(" "),
-        _c("div", [
-          _vm._v(
-            "\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore dolorum eligendi excepturi\n            iure minus nemo non, omnis quis repellat tempora?\n            Ad assumenda at dolorum ipsa itaque reiciendis! Mollitia, sunt vitae.\n        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "flex flex-row-reverse text-2xl" }, [
-          _c("span", { staticClass: "p-4 cursor-pointer" }, [
+  return _c("div", { staticClass: "app__card border-2 rounded mb-6" }, [
+    _c("div", { staticClass: "p-4 pb-0" }, [
+      _c("div", { staticClass: "font-bold mb-4" }, [
+        _vm._v(_vm._s(_vm.post.user_id))
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _vm._v("\n            " + _vm._s(_vm.post.content) + "\n        ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex flex-row-reverse text-2xl" }, [
+        _c(
+          "span",
+          {
+            staticClass: "p-4 cursor-pointer",
+            on: {
+              click: function($event) {
+                return _vm.dislike()
+              }
+            }
+          },
+          [
             _vm._v("\n                👎 "),
-            _c("span", { staticClass: "text-gray-700 text-xs" }, [_vm._v("x1")])
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "p-4 cursor-pointer" }, [
+            _c("span", { staticClass: "text-gray-700 text-xs" }, [
+              _vm._v(_vm._s(_vm.printDislikes))
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "span",
+          {
+            staticClass: "p-4 cursor-pointer",
+            on: {
+              click: function($event) {
+                return _vm.like()
+              }
+            }
+          },
+          [
             _vm._v("\n                👍 "),
-            _c("span", { staticClass: "text-gray-700 text-xs" }, [_vm._v("x2")])
-          ])
-        ])
+            _c("span", { staticClass: "text-gray-700 text-xs" }, [
+              _vm._v(_vm._s(_vm.printLikes))
+            ])
+          ]
+        )
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -4033,7 +4127,9 @@ var render = function() {
               type: "good"
             }
           },
-          [_c("RetroCard"), _vm._v(" "), _c("RetroCard")],
+          _vm._l(_vm.goodItems, function(item) {
+            return _c("RetroCard", { key: item.id, attrs: { post: item } })
+          }),
           1
         ),
         _vm._v(" "),
@@ -4046,7 +4142,9 @@ var render = function() {
               type: "bad"
             }
           },
-          [_c("RetroCard"), _vm._v(" "), _c("RetroCard")],
+          _vm._l(_vm.badItems, function(item) {
+            return _c("RetroCard", { key: item.id, attrs: { post: item } })
+          }),
           1
         ),
         _vm._v(" "),
@@ -4059,7 +4157,9 @@ var render = function() {
               type: "summary"
             }
           },
-          [_c("RetroCard"), _vm._v(" "), _c("RetroCard")],
+          _vm._l(_vm.summaryItems, function(item) {
+            return _c("RetroCard", { key: item.id, attrs: { post: item } })
+          }),
           1
         )
       ],

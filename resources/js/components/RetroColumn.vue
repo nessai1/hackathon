@@ -18,8 +18,6 @@
 
 <script>
 
-
-
 import axios from "axios";
 
 export default {
@@ -35,9 +33,14 @@ export default {
     },
     methods: {
         save() {
+            if (this.text === '') return;
+
             axios.post('/posts', {
                 postContent: this.text,
                 postType: this.type,
+                room_id: this.$route.params.code
+            }).then(response => {
+                window.location.reload(); // todo: tmp hack
             });
         }
     }
