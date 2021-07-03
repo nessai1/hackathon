@@ -24,8 +24,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      pageTitle: ''
+    };
+  },
+  mounted: function mounted() {
+    this.pageTitle = window.hackPageTitle || '';
+  }
+});
 
 /***/ }),
 
@@ -55,7 +63,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    meme: String
+  }
+});
 
 /***/ }),
 
@@ -76,10 +94,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     name: String,
-    type: String
+    type: String,
+    placeholder: String
   }
 });
 
@@ -174,6 +197,9 @@ __webpack_require__.r(__webpack_exports__);
         login: ''
       }
     };
+  },
+  created: function created() {
+    window.hackPageTitle = '';
   }
 });
 
@@ -234,6 +260,9 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     RoomStat: _components_RoomStat__WEBPACK_IMPORTED_MODULE_1__.default,
     Page: _page__WEBPACK_IMPORTED_MODULE_0__.default
+  },
+  created: function created() {
+    window.hackPageTitle = '';
   }
 });
 
@@ -319,6 +348,12 @@ __webpack_require__.r(__webpack_exports__);
     Page: _page__WEBPACK_IMPORTED_MODULE_2__.default,
     RetroColumn: _components_RetroColumn__WEBPACK_IMPORTED_MODULE_1__.default,
     RetroCard: _components_RetroCard__WEBPACK_IMPORTED_MODULE_0__.default
+  },
+  mounted: function mounted() {
+    window.hackPageTitle = 'Memespected July, 3 at 4:30 PM';
+  },
+  created: function created() {
+    window.hackPageTitle = 'Memespected July, 3 at 4:30 PM';
   }
 });
 
@@ -1211,42 +1246,41 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("nav", { staticClass: "bg-blue-300 p-4 flex" }, [
-    _c(
-      "div",
-      { staticClass: "app__logo flex-grow" },
-      [
-        _c("router-link", { staticClass: "underline", attrs: { to: "/" } }, [
-          _vm._v("Memespective")
-        ])
-      ],
-      1
-    ),
-    _vm._v(" "),
-    _c(
-      "div",
-      [
-        _c(
-          "router-link",
-          { staticClass: "underline", attrs: { to: "/room/qwerty123" } },
-          [_vm._v("Single retro")]
-        ),
-        _vm._v(" "),
-        _c(
-          "router-link",
-          { staticClass: "underline", attrs: { to: "/about" } },
-          [_vm._v("About")]
-        ),
-        _vm._v(" "),
-        _c(
-          "router-link",
-          { staticClass: "underline", attrs: { to: "/login" } },
-          [_vm._v("Login")]
-        )
-      ],
-      1
-    )
-  ])
+  return _c(
+    "nav",
+    {
+      staticClass: "bg-blue-400 p-4 grid grid-cols-3 gap-5 text-2xl text-white"
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "app__logo" },
+        [
+          _c("router-link", { staticClass: "uppercase", attrs: { to: "/" } }, [
+            _vm._v("Memespective")
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "text-center" }, [
+        _vm._v(_vm._s(_vm.pageTitle))
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "text-right" },
+        [
+          _c(
+            "router-link",
+            { staticClass: "underline", attrs: { to: "/login" } },
+            [_vm._v("Login")]
+          )
+        ],
+        1
+      )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1270,34 +1304,43 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "app__card border-2 rounded mb-6" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm.meme
+      ? _c("img", {
+          staticClass: "app__card-image",
+          attrs: { src: _vm.meme, alt: "meme" }
+        })
+      : _vm._e()
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "app__card bg-white border rounded-2xl p-4 mb-6" },
-      [
-        _c("div", { staticClass: "font-bold" }, [_vm._v("Ivan Petrov")]),
-        _vm._v(" "),
-        _c("div", [
-          _vm._v(
-            "\n        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore dolorum eligendi excepturi\n        iure minus nemo non, omnis quis repellat tempora?\n        Ad assumenda at dolorum ipsa itaque reiciendis! Mollitia, sunt vitae.\n    "
-          )
+    return _c("div", { staticClass: "p-4 pb-0" }, [
+      _c("div", { staticClass: "font-bold mb-4" }, [_vm._v("Ivan Petrov")]),
+      _vm._v(" "),
+      _c("div", [
+        _vm._v(
+          "\n            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore dolorum eligendi excepturi\n            iure minus nemo non, omnis quis repellat tempora?\n            Ad assumenda at dolorum ipsa itaque reiciendis! Mollitia, sunt vitae.\n        "
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex flex-row-reverse text-2xl" }, [
+        _c("span", { staticClass: "p-4 cursor-pointer" }, [
+          _vm._v("\n                👎 "),
+          _c("span", { staticClass: "text-gray-700 text-xs" }, [_vm._v("x1")])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "flex flex-row-reverse" }, [
-          _c("span", { staticClass: "p-4" }, [_vm._v("👎")]),
-          _vm._v(" "),
-          _c("span", { staticClass: "p-4" }, [_vm._v("👍")])
-        ]),
-        _vm._v(" "),
-        _c("img", { attrs: { src: "/storage/memes/meme1.jpg", alt: "meme" } })
-      ]
-    )
+        _c("span", { staticClass: "p-4 cursor-pointer" }, [
+          _vm._v("\n                👍 "),
+          _c("span", { staticClass: "text-gray-700 text-xs" }, [_vm._v("x2")])
+        ])
+      ])
+    ])
   }
 ]
 render._withStripped = true
@@ -1325,8 +1368,25 @@ var render = function() {
     "div",
     { staticClass: "app__column", class: "app__column--" + _vm.type },
     [
-      _c("div", { staticClass: "text-center text-2xl p-4" }, [
+      _c("div", { staticClass: "text-center text-2xl px-4 py-8" }, [
         _vm._v(_vm._s(_vm.name))
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "relative" }, [
+        _c("textarea", {
+          staticClass:
+            "app__create-card-text w-full rounded border p-2 pr-16 mb-8",
+          attrs: { placeholder: _vm.placeholder }
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "app__create-card-btn rounded bg-blue-400 hover:bg-blue-300 text-white absolute p-2"
+          },
+          [_vm._v("Send")]
+        )
       ]),
       _vm._v(" "),
       _vm._t("default")
@@ -1632,7 +1692,7 @@ var render = function() {
           "router-link",
           {
             staticClass:
-              "border rounded bg-blue-300 hover:bg-blue-400 p-3 text-white uppercase absolute right-0 top-4",
+              "border rounded bg-blue-400 hover:bg-blue-300 p-3 text-white uppercase absolute right-0 top-4",
             attrs: { tag: "button", to: "/room/qwerty123" }
           },
           [_vm._v("\n            New room\n        ")]
@@ -1727,22 +1787,46 @@ var render = function() {
       [
         _c(
           "RetroColumn",
-          { attrs: { name: "What went well", type: "good" } },
-          [_c("RetroCard"), _vm._v(" "), _c("RetroCard")],
-          1
-        ),
-        _vm._v(" "),
-        _c(
-          "RetroColumn",
-          { attrs: { name: "What should be improved", type: "bad" } },
-          [_c("RetroCard"), _vm._v(" "), _c("RetroCard")],
+          {
+            attrs: {
+              name: "What went well",
+              placeholder: "Type something you glad to",
+              type: "good"
+            }
+          },
+          [
+            _c("RetroCard", { attrs: { meme: "/storage/memes/meme1.jpg" } }),
+            _vm._v(" "),
+            _c("RetroCard")
+          ],
           1
         ),
         _vm._v(" "),
         _c(
           "RetroColumn",
           {
-            attrs: { name: "Retro summary and next actions", type: "summary" }
+            attrs: {
+              name: "What should be improved",
+              placeholder: "Type something you worried about",
+              type: "bad"
+            }
+          },
+          [
+            _c("RetroCard"),
+            _vm._v(" "),
+            _c("RetroCard", { attrs: { meme: "/storage/memes/meme1.jpg" } })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "RetroColumn",
+          {
+            attrs: {
+              name: "Retro summary",
+              placeholder: "Record all the decisions made",
+              type: "summary"
+            }
           },
           [_c("RetroCard"), _vm._v(" "), _c("RetroCard")],
           1

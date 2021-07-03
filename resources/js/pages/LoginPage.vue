@@ -48,6 +48,9 @@ export default {
                 login: '',
             },
         }
+    },
+    created() {
+        window.hackPageTitle = '';
     }
 }
 </script>

@@ -1,11 +1,10 @@
 <template>
-    <nav class="bg-blue-300 p-4 flex">
-        <div class="app__logo flex-grow">
-            <router-link to="/" class="underline">Memespective</router-link>
+    <nav class="bg-blue-400 p-4 grid grid-cols-3 gap-5 text-2xl text-white">
+        <div class="app__logo">
+            <router-link to="/" class="uppercase">Memespective</router-link>
         </div>
-        <div>
-            <router-link to="/room/qwerty123" class="underline">Single retro</router-link>
-            <router-link to="/about" class="underline">About</router-link>
+        <div class="text-center">{{ pageTitle }}</div>
+        <div class="text-right">
             <router-link to="/login" class="underline">Login</router-link>
         </div>
     </nav>
@@ -13,5 +12,13 @@
 
 <script>
 export default {
+    data() {
+        return {
+            pageTitle: ''
+        }
+    },
+    mounted() {
+        this.pageTitle = window.hackPageTitle || '';
+    }
 }
 </script>
