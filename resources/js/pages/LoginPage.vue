@@ -1,12 +1,12 @@
 <template>
     <div class="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-md w-full space-y-8">
-            <form class="mt-8 space-y-6" action="#" method="POST">
+            <form class="mt-8 space-y-6" action="#" @submit.prevent="handleLogin">
                 <input type="hidden" name="remember" value="true">
                 <div class="rounded-md shadow-sm -space-y-px">
                     <div>
-                        <label for="login" class="sr-only">Login</label>
-                        <input v-model="formData.login" id="login" name="login" type="text" autocomplete="text" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Login">
+                        <label for="name" class="sr-only">Login</label>
+                        <input v-model="formData.name" id="name" name="name" type="text" autocomplete="text" required class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Login">
                     </div>
                     <div>
                         <label for="password" class="sr-only">Password</label>
@@ -40,17 +40,29 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
     data() {
         return {
             formData: {
                 password: '',
-                login: '',
+                name: '',
             },
         }
     },
     created() {
         window.hackPageTitle = '';
-    }
+    },
+    methods: {
+        handleLogin() {
+            axios.get('/sanctum/csrf-cookie').then(response => {
+                axios.post('/login', this.formData).then(response => {
+                    console.log('User signed in!');
+                }).catch(error => {
+                    console.log(error);
+                });
+            });
+        }
+    },
 }
 </script>
