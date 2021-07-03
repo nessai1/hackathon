@@ -1,30 +1,30 @@
 <template>
-    <div class="container mx-auto">
-        <div class="grid grid-cols-3 gap-5">
-            <RetroColumn name="What went well" type="good">
-                <RetroCard/>
-                <RetroCard/>
-            </RetroColumn>
-
-            <RetroColumn name="What should be improved" type="bad">
-                <RetroCard/>
-                <RetroCard/>
-            </RetroColumn>
-
-            <RetroColumn name="Retro summary and next actions" type="summary">
-                <RetroCard/>
-                <RetroCard/>
-            </RetroColumn>
+    <Page>
+        <div class="relative">
+            <router-link
+                tag="button"
+                to="/room/qwerty123"
+                class="border rounded bg-blue-400 hover:bg-blue-300 p-3 text-white uppercase absolute right-0 top-4">
+                New room
+            </router-link>
+            <RoomStat :enlarge="true"/>
+            <RoomStat/>
+            <RoomStat/>
+            <RoomStat/>
         </div>
-    </div>
+    </Page>
 </template>
 
 <script>
 
-import RetroCard from "../components/RetroCard";
-import RetroColumn from "../components/RetroColumn";
+import Page from "./page";
+import RoomStat from "../components/RoomStat";
+import axios from 'axios';
 
 export default {
-    components: {RetroColumn, RetroCard}
+    components: {RoomStat, Page},
+    created() {
+        axios.get('')
+    }
 }
 </script>

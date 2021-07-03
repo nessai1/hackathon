@@ -4,14 +4,26 @@
 
 .app__column--good .app__card {
     @apply bg-green-100;
+    @apply border-green-500;
 }
 
 .app__column--bad .app__card {
     @apply bg-red-100;
+    @apply border-red-500;
 }
 
 .app__column--summary .app__card {
     @apply bg-yellow-100;
+    @apply border-yellow-500;
+}
+
+.app__create-card-text {
+    min-height: 100px;
+}
+
+.app__create-card-btn {
+    right: 12px;
+    bottom: 50px;
 }
 
 
