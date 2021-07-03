@@ -12,11 +12,14 @@ export default {
     components: {Navbar},
     computed: {},
     mounted() {
-        axios.post('/auth').then(response => this.authorized = response.data);
-        if (!this.authorized && window.location.pathname !== '/login')
-        {
-            window.location.pathname = '/login';
-        }
+        axios.post('/auth').then(response => {
+            this.authorized = response.data
+            console.log(this.authorized);
+            if (!this.authorized && window.location.pathname !== '/login')
+            {
+                window.location.pathname = '/login';
+            }
+        });
     },
     data() {
         return {
