@@ -18,5 +18,7 @@ use Illuminate\Support\Facades\Route;
 //});
 
 
+Route::resource('posts', PostController::class);
+//Route::resource('room', RoomController::class);
 Route::post('/login', 'App\Http\Controllers\LoginController@authenticate');
 Route::get('/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '.*');
