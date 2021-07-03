@@ -1,6 +1,6 @@
 <template>
     <Page>
-        <RoomStat enlarge="true"/>
+        <RoomStat :enlarge="true"/>
         <RoomStat/>
         <RoomStat/>
         <RoomStat/>

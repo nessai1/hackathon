@@ -1273,7 +1273,7 @@ var render = function() {
   return _c(
     "Page",
     [
-      _c("RoomStat", { attrs: { enlarge: "true" } }),
+      _c("RoomStat", { attrs: { enlarge: true } }),
       _vm._v(" "),
       _c("RoomStat"),
       _vm._v(" "),
