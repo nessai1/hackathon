@@ -25,4 +25,20 @@ Route::post('/posts/{id}/{reaction}', 'App\Http\Controllers\PostController@react
 Route::resource('posts', PostController::class);
 //Route::resource('room', RoomController::class);
 Route::post('/login', 'App\Http\Controllers\LoginController@authenticate');
+
+
+Route::get('/soksok', function () {
+
+    $post = new \App\Models\Post();
+    $post->content = 'Three';
+    $post->like = 0;
+    $post->dislike = 2;
+    $post->user_id = 1;
+    $post->column_type = 'summary';
+    $post->room_id = 'qwerty123';
+
+    return $post->save();
+
+});
+
 Route::get('/{any}', 'App\Http\Controllers\PagesController@index')->where('any', '.*');

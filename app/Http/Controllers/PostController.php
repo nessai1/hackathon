@@ -123,7 +123,7 @@ class PostController extends Controller
 
 	public function reaction($id, $reaction)
 	{
-		$post = Post::where('room_id', $id)->first();
+		$post = Post::where('id', $id)->first();
 		if (!in_array($reaction, ['like', 'dislike'], true))
 		{
 			return;
