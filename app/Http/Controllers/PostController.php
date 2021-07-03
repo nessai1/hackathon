@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\Like;
 use App\Models\Post;
 use Illuminate\Broadcasting\Broadcasters\PusherBroadcaster;
 use Illuminate\Http\Request;
@@ -35,9 +36,15 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $room_id)
+    public function store(Request $request)
     {
-	    $post = Post::where('id',(int)$request->get('id'))->first();
+	    $post = new Post();
+	    $post->content = $request->get('postContent');
+	    $post->room_id = $request->get('room_id');
+//	    $post->user_id = $request->get('user_id');
+	    $post->column_type = $request->get('postType');
+	    $post->save();
+//	    $post = Post::where('id',(int)$request->get('id'))->first();
 
 	    return \response('ok');
     }
@@ -126,16 +133,6 @@ class PostController extends Controller
 			'cluster' => 'eu',
 			'useTLS' => false
 		);
-		new PusherBroadcaster();
-//		new Pusher()
-//		$pusher = new Pusher\Pusher(
-//			'b836cf8b8b8902c797bc',
-//			'71a395f05335fe41decb',
-//			'1227944',
-//			$options
-//		);
-//
-//		$data['message'] = 'hello world';
-//		$pusher->trigger('my-channel', 'my-event', $data);
+		event(new Like('like'));
 	}
 }

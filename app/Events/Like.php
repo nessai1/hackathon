@@ -14,23 +14,20 @@ class Like implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    /**
-     * Create a new event instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
+	public $message;
 
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return \Illuminate\Broadcasting\Channel|array
-     */
-    public function broadcastOn()
-    {
-        return ;
-    }
+	public function __construct($message)
+	{
+		$this->message = $message;
+	}
+
+	public function broadcastOn()
+	{
+		return ['my-channel'];
+	}
+
+	public function broadcastAs()
+	{
+		return $this->message;
+	}
 }
