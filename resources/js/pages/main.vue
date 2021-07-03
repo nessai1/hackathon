@@ -24,7 +24,7 @@ import axios from 'axios';
 export default {
     components: {RoomStat, Page},
     created() {
-        axios.get('')
+        //axios.get('')
     }
 }
 </script>
