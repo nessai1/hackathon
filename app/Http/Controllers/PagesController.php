@@ -10,7 +10,6 @@ class PagesController extends Controller
     //
     public function index()
     {
-    	$rooms = Room::all();
         return view('welcome');
     }
 }

@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 //});
 
 
+Route::post('/posts/{id}/{reaction}', 'App\Http\Controllers\PostController@reaction')
+	->where(['id' => '[0-9]+', 'reaction' => '[a-z]+'])
+;
 Route::resource('posts', PostController::class);
 //Route::resource('room', RoomController::class);
 Route::post('/login', 'App\Http\Controllers\LoginController@authenticate');
