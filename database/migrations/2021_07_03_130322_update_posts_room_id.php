@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdatePosts extends Migration
+class UpdatePostsRoomId extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class UpdatePosts extends Migration
     public function up()
     {
 	    Schema::table('posts', function (Blueprint $table) {
-		    $table->string('column_type')->nullable();
+		    $table->string('room_id')->nullable();
 	    });
     }
 
@@ -26,7 +26,7 @@ class UpdatePosts extends Migration
     public function down()
     {
 	    Schema::table('posts', function (Blueprint $table) {
-		    $table->dropColumn('column_type');
+		    $table->dropColumn('room_id');
 	    });
     }
 }
