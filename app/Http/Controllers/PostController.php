@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Broadcasting\Broadcasters\PusherBroadcaster;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class PostController extends Controller
 {
@@ -35,48 +35,9 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $room_id)
     {
 	    $post = Post::where('id',(int)$request->get('id'))->first();
-
-	    $mode = $request->get('mode');
-	    $type = $request->get('type');
-	    $method = $request->get('method');
-
-	    switch ($method) {
-		    case 'create':
-		    	$this->createPost();
-		    	break;
-	    }
-
-
-	    if ($type === 'like')
-	    {
-		    if ($mode === 'up')
-		    {
-			    $post->increment('like');
-		    }
-		    elseif ($mode === 'down')
-		    {
-			    $post->decrement('like');
-		    }
-	    }
-	    elseif ($type === 'dislike')
-	    {
-		    if ($mode === 'up')
-		    {
-			    $post->increment('dislike');
-		    }
-		    elseif ($mode === 'down')
-		    {
-			    $post->decrement('dislike');
-		    }
-	    }
-	    elseif ($type === 'text')
-	    {
-		    $post->content = $request->get('postContent');
-		    $post->save();
-	    }
 
 	    return \response('ok');
     }
@@ -153,13 +114,28 @@ class PostController extends Controller
 		$post->save();
 	}
 
-	public function reaction(Request $request, $id, $reaction)
+	public function reaction($id, $reaction)
 	{
-		$post = Post::find($id)->first();
+		$post = Post::where('room_id', $id)->first();
 		if (!in_array($reaction, ['like', 'dislike'], true))
 		{
 			return;
 		}
 		$post->increment($reaction);
+		$options = array(
+			'cluster' => 'eu',
+			'useTLS' => false
+		);
+		new PusherBroadcaster();
+//		new Pusher()
+//		$pusher = new Pusher\Pusher(
+//			'b836cf8b8b8902c797bc',
+//			'71a395f05335fe41decb',
+//			'1227944',
+//			$options
+//		);
+//
+//		$data['message'] = 'hello world';
+//		$pusher->trigger('my-channel', 'my-event', $data);
 	}
 }

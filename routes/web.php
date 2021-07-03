@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 //});
 
 
-Route::get('/posts/{id}/{reaction}', 'App\Http\Controllers\PostController@reaction')
+Route::post('/posts/{id}/{reaction}', 'App\Http\Controllers\PostController@reaction')
 	->where(['id' => '[0-9]+', 'reaction' => '[a-z]+'])
 ;
 Route::resource('posts', PostController::class);
