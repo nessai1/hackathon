@@ -43,6 +43,12 @@ class PostController extends Controller
 	    $type = $request->get('type');
 	    $method = $request->get('method');
 
+	    switch ($method) {
+		    case 'create':
+		    	$this->createPost();
+		    	break;
+	    }
+
 
 	    if ($type === 'like')
 	    {
@@ -136,4 +142,14 @@ class PostController extends Controller
         $isSuccess = Post::where('id', $id);
         return \response($isSuccess);
     }
+
+	private function createPost(Request $request)
+	{
+		$post = new Post();
+		$post->content = $request->get('postContent');
+		$post->room_id = $request->get('room_id');
+		$post->user_id = $request->get('user_id');
+		$post->column_type = $request->get('postType');
+		$post->save();
+	}
 }
