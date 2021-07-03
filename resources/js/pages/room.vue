@@ -2,13 +2,13 @@
     <Page>
         <div class="grid grid-cols-3 gap-5">
             <RetroColumn name="What went well" placeholder="Type something you glad to" type="good">
-                <RetroCard meme="/storage/memes/meme1.jpg"/>
+                <RetroCard/>
                 <RetroCard/>
             </RetroColumn>
 
             <RetroColumn name="What should be improved" placeholder="Type something you worried about" type="bad">
                 <RetroCard/>
-                <RetroCard meme="/storage/memes/meme1.jpg"/>
+                <RetroCard/>
             </RetroColumn>
 
             <RetroColumn name="Retro summary" placeholder="Record all the decisions made" type="summary">

@@ -16,14 +16,11 @@
                 </span>
             </div>
         </div>
-        <img class="app__card-image" :src="meme" alt="meme" v-if="meme">
     </div>
 </template>
 
 <script>
 export default {
-    props: {
-        meme: String,
-    }
+
 }
 </script>

@@ -19,11 +19,12 @@
 
 import Page from "./page";
 import RoomStat from "../components/RoomStat";
+import axios from 'axios';
 
 export default {
     components: {RoomStat, Page},
     created() {
-        window.hackPageTitle = '';
+        axios.get('')
     }
 }
 </script>
