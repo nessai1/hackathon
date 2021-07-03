@@ -40,7 +40,7 @@ export default {
                 postType: this.type,
                 room_id: this.$route.params.code
             }).then(response => {
-                window.location.reload(); // todo: tmp hack
+                //window.location.reload(); // todo: tmp hack
             });
         }
     }

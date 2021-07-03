@@ -41,7 +41,9 @@ class PostController extends Controller
 	    $post = new Post();
 	    $post->content = $request->get('postContent');
 	    $post->room_id = $request->get('room_id');
-//	    $post->user_id = $request->get('user_id');
+	    $post->user_id = 1;
+	    $post->like = 0;
+	    $post->dislike = 0;
 	    $post->column_type = $request->get('postType');
 	    $post->save();
 //	    $post = Post::where('id',(int)$request->get('id'))->first();
